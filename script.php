@@ -11,17 +11,28 @@
 	<body>
 		<?php	
 			$number = $_POST["number"];
-			
-			include "tables.php";
+			$nameset= $_POST["nameset"];
 			include "classes.php";
 
-			for($i=0;$i < $number;$i++) {
+			function Generate($namesset,$number){
+				include $namesset;
 
-			$person = new Person($names[rand(0,count($names)-1)],$last_names[rand(0,count($last_names)-1)]);
-			echo $person->getName();
-			echo $person->getLastName();
-			echo "<br>";
+				for($i=0;$i < $number;$i++) {
+					$person = new Person($names[rand(0,count($names)-1)],$last_names[rand(0,count($last_names)-1)]);
+					echo $person->getName();
+					echo $person->getLastName();
+					echo "<br>";
+				}
 			}
+
+			if ($nameset == "American") {
+				Generate("american.php",$number);
+			}
+
+			if ($nameset == "German") {
+				Generate("german.php",$number);
+			}
+
 			
 		?>
 	</body>
