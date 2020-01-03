@@ -16,6 +16,12 @@
 			<th>
 				Phone Number
 			</th>
+			<th>
+				City
+			</th>
+			<th>
+				Adress
+			</th>
 		</tr>	
 		
 		
@@ -25,38 +31,32 @@
 			$nameset= $_POST["nameset"];
 			include "classes.php";
 
-			function Generate($namesset,$number){
-				include $namesset;
+			for ($i=0; $i < $number; $i++) { 
+				$person = new Person();
 
-				for($i=0;$i < $number;$i++) {
-					echo "<tr>";
-					$person = new Person($names[rand(0,count($names)-1)],$last_names[rand(0,count($last_names)-1)]);
-					echo "<th>";
-					echo $person->getName();
-					echo "</th>";
-					echo "<th>";
-					echo $person->getLastName();
-					echo "</th>";
-					echo "<th>";
-					if ($namesset == "american.php") {
-						echo $person->getAmericanNumber();
-					} else if ($namesset == "german.php") {
-						echo $person->getGermanNumber();
-					}
-					echo "</th>";
-					
+				echo "<tr>";
+
+				if ($nameset == "American") {
+					echo "<th>".$person->getAmericanName()."</th>";
+					echo "<th>".$person->getAmericanLastName()."</th>";
+					echo "<th>".$person->getAmericanNumber()."</th>";
+					$person->getAmericanAdress();
+					echo "<th>".$person->city."</th>";
+					echo "<th>".$person->street.$person->street_num."</th>";
 				}
+
+				if ($nameset == "German") {
+					echo "<th>".$person->getGermanName()."</th>";
+					echo "<th>".$person->getGermanLastName()."</th>";
+					echo "<th>".$person->getGermanNumber()."</th>";
+					$person->getGermanAdress();
+					echo "<th>".$person->city."</th>";
+					echo "<th>".$person->street.$person->street_num."</th>";
+				}
+
+				echo "</tr>";
 			}
 
-			if ($nameset == "American") {
-				Generate("american.php",$number);
-			}
-
-			if ($nameset == "German") {
-				Generate("german.php",$number,"German number");
-			}
-
-			
 		?>
 
 		</table>

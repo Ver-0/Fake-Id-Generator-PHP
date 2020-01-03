@@ -1,6 +1,13 @@
 # Fake-Id-Generator-PHP
 
 Generator uses tables, written with OOP.
-Generates random first name, last name and phone number with name sets:
+
+Generates: 
+-first name 
+-last name 
+-phone number 
+-adress
+
+with name sets:
 -American
 -German

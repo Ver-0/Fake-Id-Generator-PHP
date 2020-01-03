@@ -23,3 +23,34 @@ $last_names=[
 "Wilson",
 
 ];	
+
+$cities=[
+"San Francisco",
+"Los Angeles",
+"Las Vegas",
+"San Diego",
+"Dallas",
+"Houston",
+"Philadelphia",
+"Washington",
+"Boston",
+"New York",
+"Miami",
+"Seattle",
+];
+
+$streets=[
+"Second St ",
+"Third St ",
+"Park St ",
+"Main St ",
+"Oak St ",
+"Pine St ",
+"Maple St ",
+"Cedar St ",
+"Elm St ",
+"View St ",
+"Washington St ",
+"Lake St ",
+"Hill St ",
+];
