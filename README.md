@@ -8,10 +8,13 @@ Generates:
 -first name 
 
 -last name 
+
 -birthday
+
 -phone number 
 
 -adress
+
 -occupation
 
 
