@@ -34,35 +34,38 @@
 		
 
 		<?php	
+			//Collects data from form and includes file with classes
 			$number = $_POST["number"];
 			$nameset= $_POST["nameset"];
 			include "classes.php";
 
+
+			//Function to collect and write IDs in table 
+			function Generate($name,$lastname,$phonenumber,$adress,$class) {
+				echo "<th>".$name."</th>";
+				echo "<th>".$lastname."</th>";
+				echo "<th>".$class->getBirthday()."</th>";
+				echo "<th>".$phonenumber."</th>";
+				$adress;
+				echo "<th>".$class->city."</th>";
+				echo "<th>".$class->street.$class->street_num."</th>";
+				echo "<th>".$class->getOccupation()."</th>";
+			}
+
+			//Loop for generating correct number of IDs
 			for ($i=0; $i < $number; $i++) { 
 				$person = new Person();
 
+				
 				echo "<tr>";
 
+				//Funtions will choose correct methods depending on nationality
 				if ($nameset == "American") {
-					echo "<th>".$person->getAmericanName()."</th>";
-					echo "<th>".$person->getAmericanLastName()."</th>";
-					echo "<th>".$person->getBirthday()."</th>";
-					echo "<th>".$person->getAmericanNumber()."</th>";
-					$person->getAmericanAdress();
-					echo "<th>".$person->city."</th>";
-					echo "<th>".$person->street.$person->street_num."</th>";
-					echo "<th>".$person->getOccupation()."</th>";
+					Generate($person->getAmericanName(),$person->getAmericanLastName(),$person->getAmericanNumber(),$person->getAmericanAdress(),$person);
 				}
 
 				if ($nameset == "German") {
-					echo "<th>".$person->getGermanName()."</th>";
-					echo "<th>".$person->getGermanLastName()."</th>";
-					echo "<th>".$person->getBirthday()."</th>";
-					echo "<th>".$person->getGermanNumber()."</th>";
-					$person->getGermanAdress();
-					echo "<th>".$person->city."</th>";
-					echo "<th>".$person->street.$person->street_num."</th>";
-					echo "<th>".$person->getOccupation()."</th>";
+					Generate($person->getGermanName(),$person->getGermanLastName(),$person->getGermanNumber(),$person->getGermanAdress(),$person);
 				}
 
 				echo "</tr>";

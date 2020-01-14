@@ -16,6 +16,7 @@ class Person {
 
 	//All namesets
 
+	//Method generates and returns date with random numbers, not system related
 	public function getBirthday(){
 		$year = rand(1950,2001);
 		$month = rand(1,12);
@@ -69,6 +70,7 @@ class Person {
 		return $this->birthday;
 	}
 
+	//Method generates and returns random occupation from occupation.php table
 	public function getOccupation(){
 		include "occupation.php";
 		$this->occupation = $occupation[rand(0,count($occupation)-1)];
@@ -78,22 +80,24 @@ class Person {
 
 	//American
 
+	//Method generates and returns random name from american.php names table
 	public function getAmericanName(){
 		include "american.php";
 		$this->name = $names[rand(0,count($names)-1)];
 		return $this->name;
 	}
+	//Method generates and returns random last name from american.php last names table
 	public function getAmericanLastName(){
 		include "american.php";
 		$this->last_name = $last_names[rand(0,count($last_names)-1)];
 		return $this->last_name;
 	}
-
+	//Method generates and returns american number with correct formula
 	public function getAmericanNumber(){
 		$this->phone_number = rand(100,999)."-".rand(100,999)."-".rand(1000,9999);
 		return $this->phone_number;
 	}
-
+	//Method generates and returns random city and street from american.php cities and streets tables
 	public function getAmericanAdress(){
 		include "american.php";
 		$this->city = $cities[rand(0,count($cities)-1)];
@@ -110,23 +114,24 @@ class Person {
 
 	//German
 
-
+	//Method generates and returns random name from german.php names table
 	public function getGermanName(){
 		include "german.php";
 		$this->name = $names[rand(0,count($names)-1)];
 		return $this->name;
 	}
+	//Method generates and returns random last name from german.php last names table
 	public function getGermanLastName(){
 		include "german.php";
 		$this->last_name = $last_names[rand(0,count($last_names)-1)];
 		return $this->last_name;
 	}
-
+	//Method generates and returns german number with correct formula
 	public function getGermanNumber(){
 		$this->phone_number = "0".rand(100,9999)." ".rand(10,99)." ".rand(10,99)." ".rand(10,99);
 		return $this->phone_number;
 	}
-
+	//Method generates and returns random city and street from german.php cities and streets tables
 	public function getGermanAdress(){
 		include "german.php";
 		$this->city = $cities[rand(0,count($cities)-1)];
